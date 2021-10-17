@@ -1,9 +1,9 @@
 * {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #main-container {
-    background-color: rgb(97, 92, 92);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -11,17 +11,15 @@
 }
 
 #chat-container {
-    background-color: rgb(65, 47, 143);
     height: 850px;
     width: 1000px;
     border-radius: 10px;
-    box-shadow: 10px 10px 8px #888888;
     display: flex;
     flex-direction: column;
+    border: 2px solid rgba(0, 0, 0, 0.103);
 }
 
 #send-container {
-    background-color: tomato;
     height: 20%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -42,32 +40,30 @@
 }
 
 #message-container {
-    background-color: rgb(153, 44, 58);
     height: 80%;
     border-radius: 0px 0px 10px 10px;
     overflow-y: scroll;
 }
 
 .user-box {
-    background-color: darkcyan;
+    background-color: #d8ebfa;
     height: 20%;
     width: 100%;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(199, 193, 193);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all 0.5s ease-out;
 }
 
 .user-info {
     width: 100%;
     height: 75%;
-    background-color: cornflowerblue;
     display: flex;
 }
 
 .user-img {
-    background-color: cyan;
     height: 100%;
     width: 10%;
     display: flex;
@@ -81,7 +77,6 @@
     border-radius: 50px;
 }
 .user-data {
-    background-color: rgb(41, 185, 22);
     height: 100%;
     width: 90%;
     display: flex;
@@ -89,7 +84,6 @@
 }
 
 .user-email {
-    background-color: darkgray;
     height: 35%;  
 }
 
@@ -98,7 +92,6 @@
 }
 
 .user-message {
-    background-color: rgb(143, 86, 131);
     height: 65%;
     display: flex;
     align-items: center;
@@ -114,4 +107,19 @@
     align-items: center;
 }
 
+.delete-section button {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    background:linear-gradient(rgb(253, 115, 115),rgb(219, 50, 50));
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
 
+.delete-section button:hover {
+    transform: scale(1.05);
+}
+.user-message > p {
+    padding-left: 5px;
+}
