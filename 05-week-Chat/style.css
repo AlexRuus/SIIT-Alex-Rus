@@ -44,17 +44,14 @@
 #message-container {
     background-color: rgb(153, 44, 58);
     height: 80%;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    border-radius: 0px 0px 10px 10px;
+    overflow-y: scroll;
 }
 
 .user-box {
     background-color: darkcyan;
     height: 20%;
     width: 100%;
-    /* margin: 10px; */
     border-bottom: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -62,25 +59,28 @@
     justify-content: center;
 }
 
-#user-info {
+.user-info {
     width: 100%;
     height: 75%;
     background-color: cornflowerblue;
     display: flex;
 }
 
-#user-img {
+.user-img {
     background-color: cyan;
     height: 100%;
     width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 50px;
 }
-#user-data {
+.user-data {
     background-color: rgb(41, 185, 22);
     height: 100%;
     width: 90%;
@@ -88,16 +88,16 @@
     flex-direction: column;
 }
 
-#user-email {
+.user-email {
     background-color: darkgray;
     height: 35%;  
 }
 
-#user-email > h4 {
+.user-email > h4 {
     margin: 5px 0px 0px 5px;
 }
 
-#user-message {
+.user-message {
     background-color: rgb(143, 86, 131);
     height: 65%;
     display: flex;
@@ -108,7 +108,7 @@
     margin-left: 10px;
 }
 
-#delete-section {
+.delete-section {
     height: 25%;
     display: flex;
     align-items: center;
