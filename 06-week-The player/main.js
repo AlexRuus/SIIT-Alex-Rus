@@ -73,8 +73,8 @@ function mapGenerator(){
 }
 
 function compare(){
-    for(i = 0; i < obstacleL.length; i++){
-        if(player.style.left == obstacleList[i].style.left && player.style.top == obstacleLi[i].style.top){
+    for(i = 0; i < obstacleList.length; i++){
+        if(player.style.left == obstacleList[i].style.left && player.style.top == obstacleList[i].style.top){
             return true;
         }
     }
