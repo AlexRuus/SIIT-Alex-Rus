@@ -1,5 +1,8 @@
 const gameContainer = document.querySelector('#game-container');
+const finish = document.querySelector('.finish');
+const main = document.querySelector('.main');
 let player = document.querySelector('.player');
+
 let moveBy = 10;
 
 
@@ -44,7 +47,7 @@ window.addEventListener('keydown', (e) => {
             }
             break;
     }
-
+    playerWin();
 });
 
 let obstacleList = [];
@@ -67,7 +70,7 @@ console.log(obstacleList);
 
 
 function mapGenerator(){
-    for(i = 0; i < 200; i++){
+    for(i = 0; i < 300; i++){
         createObstacle();
     }
 }
@@ -80,3 +83,66 @@ function compare(){
     }
     return false;
 }
+
+
+function playerWin(){
+    if(player.offsetLeft >= 570 && player.offsetTop >= 570){
+        alert('you win'); 
+    }
+}
+
+
+
+
+
+
+
+
+// let startingSeconds = 10;
+// const timer = document.querySelector('.timer');
+
+// let refresh = setInterval(updateCountdown,1000);
+// setInterval(updateCountdown,1000);
+// clearInterval(refresh);
+
+// function updateCountdown() {
+//     if(startingSeconds == 0){
+//         clearInterval(refresh);
+//         playerLose()
+//         return
+//     }
+//     startingSeconds--;
+//     timer.innerHTML = `Time left: ${startingSeconds}`;
+// }
+
+
+let score = document.createElement('div');
+score.classList.add('player-score');
+
+for(i = 0; i < 5; i++){
+    main.prepend(score);
+    console.log(main)
+
+}
+
+
+function playerPoints(){
+
+}
+
+
+
+
+
+function playerLose(){
+    if(startingSeconds == 0){
+        alert('you lost');
+        window.location.reload();
+    }
+}
+
+
+// var refresh = setInterval(fname, 10000);
+
+// /* later */
+// clearInterval(refresh);

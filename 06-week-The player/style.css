@@ -59,3 +59,9 @@
     object-fit: cover;
 }
 
+.player-score {
+    width: 30px;
+    height: 30px;
+    background-color: tomato;
+}
+
