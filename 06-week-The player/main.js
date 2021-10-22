@@ -22,7 +22,7 @@ window.addEventListener('keydown', (e) => {
         case 'ArrowRight':
             player.style.left = parseInt(player.style.left) + moveBy + 'px';
             console.log(player.style.left + ' right');
-            if(player.style.left == 400 + 'px' || compare() == true){
+            if(player.style.left == 600 + 'px' || compare() == true){
                 player.style.left = parseInt(player.style.left) - moveBy + 'px';
 
             }
@@ -38,7 +38,7 @@ window.addEventListener('keydown', (e) => {
         case 'ArrowDown':
             player.style.top = parseInt(player.style.top) + moveBy + 'px';
             console.log(player.style.top + ' down');
-            if(player.style.top == 400 + 'px' || compare() == true){
+            if(player.style.top == 600 + 'px' || compare() == true){
                 player.style.top = parseInt(player.style.top) - moveBy + 'px';
 
             }
@@ -50,8 +50,8 @@ window.addEventListener('keydown', (e) => {
 let obstacleList = [];
 
 function createObstacle(){
-    let test = (Math.floor(Math.random() * 37) + 1) * 10;
-    let test1 = (Math.floor(Math.random() * 37) + 1) * 10;
+    let test = (Math.floor(Math.random() * 56) + 1) * 10;
+    let test1 = (Math.floor(Math.random() * 56) + 1) * 10;
 
     let obstacle = document.createElement('div');
     obstacle.classList.add('obstacle');
@@ -67,7 +67,7 @@ console.log(obstacleList);
 
 
 function mapGenerator(){
-    for(i = 0; i < 100; i++){
+    for(i = 0; i < 200; i++){
         createObstacle();
     }
 }
