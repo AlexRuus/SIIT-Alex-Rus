@@ -115,6 +115,7 @@ function playerWin(){
 //     timer.innerHTML = `Time left: ${startingSeconds}`;
 // }
 
+let playerLifes = [];
 
 let score = document.createElement('div');
 score.classList.add('player-score');
