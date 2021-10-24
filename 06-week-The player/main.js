@@ -2,29 +2,30 @@ const gameContainer = document.querySelector('#game-container');
 const finish = document.querySelector('.finish');
 const main = document.querySelector('.main');
 let player = document.querySelector('.player');
+const playerHp = document.querySelector('.player-hp');
 
 let moveBy = 10;
 
 
+//This listener make the player move and locate himself of the map && i left console.log's down in case you want to verify his position
 window.addEventListener('load', () => {
     player.style.position = 'absolute';
     player.style.left = 0;
     player.style.top = 0;
     mapGenerator();
-    console.log(obstacleList);
 });
 window.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'ArrowLeft':
             player.style.left = parseInt(player.style.left) - moveBy + 'px';
-            console.log(player.style.left + ' left');
+            // console.log(player.style.left + ' left');
             if(player.style.left == -10 + 'px' || compare() == true){
                 player.style.left = parseInt(player.style.left) + moveBy + 'px';
             }
             break;
         case 'ArrowRight':
             player.style.left = parseInt(player.style.left) + moveBy + 'px';
-            console.log(player.style.left + ' right');
+            // console.log(player.style.left + ' right');
             if(player.style.left == 600 + 'px' || compare() == true){
                 player.style.left = parseInt(player.style.left) - moveBy + 'px';
 
@@ -32,7 +33,7 @@ window.addEventListener('keydown', (e) => {
             break;
         case 'ArrowUp':
             player.style.top = parseInt(player.style.top) - moveBy + 'px';
-            console.log(player.style.top + ' up');
+            // console.log(player.style.top + ' up');
             if(player.style.top == -10 + 'px' || compare() == true){
                 player.style.top = parseInt(player.style.top) + moveBy + 'px';               
 
@@ -40,7 +41,7 @@ window.addEventListener('keydown', (e) => {
             break;
         case 'ArrowDown':
             player.style.top = parseInt(player.style.top) + moveBy + 'px';
-            console.log(player.style.top + ' down');
+            // console.log(player.style.top + ' down');
             if(player.style.top == 600 + 'px' || compare() == true){
                 player.style.top = parseInt(player.style.top) - moveBy + 'px';
 
@@ -49,6 +50,9 @@ window.addEventListener('keydown', (e) => {
     }
     playerWin();
 });
+
+
+//Down here I create the obstacles
 
 let obstacleList = [];
 
@@ -66,14 +70,16 @@ function createObstacle(){
     obstacleList.push(obstacle);
     
 }
-console.log(obstacleList);
 
+//This function generate the map with the obstacles
 
 function mapGenerator(){
-    for(i = 0; i < 300; i++){
+    for(i = 0; i < 400; i++){
         createObstacle();
     }
 }
+
+//This function compare obstacles position with the player position
 
 function compare(){
     for(i = 0; i < obstacleList.length; i++){
@@ -87,63 +93,63 @@ function compare(){
 
 function playerWin(){
     if(player.offsetLeft >= 570 && player.offsetTop >= 570){
-        alert('you win'); 
-    }
-}
-
-
-
-
-
-
-
-
-// let startingSeconds = 10;
-// const timer = document.querySelector('.timer');
-
-// let refresh = setInterval(updateCountdown,1000);
-// setInterval(updateCountdown,1000);
-// clearInterval(refresh);
-
-// function updateCountdown() {
-//     if(startingSeconds == 0){
-//         clearInterval(refresh);
-//         playerLose()
-//         return
-//     }
-//     startingSeconds--;
-//     timer.innerHTML = `Time left: ${startingSeconds}`;
-// }
-
-let playerLifes = [];
-
-let score = document.createElement('div');
-score.classList.add('player-score');
-
-for(i = 0; i < 5; i++){
-    main.prepend(score);
-    console.log(main)
-
-}
-
-
-function playerPoints(){
-
-}
-
-
-
-
-
-function playerLose(){
-    if(startingSeconds == 0){
-        alert('you lost');
+        alert('You win the game');
         window.location.reload();
     }
 }
 
+//The code down below create the timer, and the time left for the player to win the round/lose/lose the game.
 
-// var refresh = setInterval(fname, 10000);
+let startingSeconds = 15;
+const timer = document.querySelector('.timer');
 
-// /* later */
-// clearInterval(refresh);
+let refresh = setInterval(updateCountdown,1000);
+
+
+function updateCountdown() {
+    if(startingSeconds == 0){
+        clearInterval(refresh);
+        playerLostRound();
+        if(hpNumber > 0){
+            startingSeconds = 15;
+            player.style.left = 0;
+            player.style.top = 0;
+            refresh = setInterval(updateCountdown,1000);
+            timer.innerHTML = `Time left: ${startingSeconds}`;
+        }
+        return
+
+    }
+    startingSeconds--;
+    timer.innerHTML = `Time left: ${startingSeconds} seconds`;
+}
+
+//Player HP
+
+let hpNumber = 5;
+let playerLifes = [];
+
+for(i = 0; i < 5; i++){
+    let score = document.createElement('div');
+    score.classList.add('player-score');
+    playerHp.append(score);
+    playerLifes.push(score);
+    
+}
+
+function playerLostRound(){
+    if(startingSeconds == 0){
+        playerLifes[hpNumber - 1].remove();
+        hpNumber--;
+    }
+    playerLose();
+}
+
+
+function playerLose(){
+    if(hpNumber == 0){
+        alert('You lost the game');
+        window.location.reload();
+    }
+}
+
