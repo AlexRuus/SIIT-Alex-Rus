@@ -113,6 +113,8 @@ resetTime.addEventListener('click',function(){
     hours = 0;
     hoursHTML.innerHTML = '00';
     
+    lapCount.innerHTML = '';
+    
     clearInterval(timeCounter);
     timeCounter = null;
     

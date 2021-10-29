@@ -4,22 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
     <div class="main">
         <div class="digital-timer">
+          <div class="time-display">
             <p>
               <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
             </p>
+          </div>
+          <div class="digital-buttons">
+            <button id='start-time'>Start</button>
+            <button id='stop-time'>Stop</button>
+            <button id='save-time'>Save</button>          
+            <button id='reset-time'>Reset</button>
+          </div>
         </div>
-        <div class="digital-buttons">
-            
-        </div>
-        <button id='start-time'>Start</button>
-        <button id='stop-time'>Stop</button>
-        <button id='reset-time'>Reset</button>
-        <button id='save-time'>Save</button>
+
         <div id="laps"></div>
     </div>
 
